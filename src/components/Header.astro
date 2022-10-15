@@ -1,0 +1,25 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { GITHUB_URL, SITE_TITLE, HOMEPAGE_URL } from '../config.ts';
+import FootprintIcon from './icons/footprint.tsx';
+import { IoLogoGithub } from 'react-icons/io5/index.js';
+import ThemeToggleButton from './ThemeToggleButton.tsx';
+---
+<header class="fixed w-full p-2 z-20 backdrop-blur-md">
+	<div class="mx-auto max-w-3xl">
+		<nav class="flex items-center gap-3 text-base">	
+			<a href="/" class="group">
+				<h2 class="font-semibold tracking-tighter p-2 font-mplus text-lg">
+					<FootprintIcon/>
+					{SITE_TITLE}
+				</h2>
+			</a>
+			<div class="items-center gap-6 hidden md:flex">
+				<HeaderLink href={HOMEPAGE_URL}>About</HeaderLink>
+				<HeaderLink href={ GITHUB_URL }target="_blank"><IoLogoGithub/>Source</HeaderLink>
+			</div>
+			<div class="flex-1"></div>
+			<ThemeToggleButton client:visible/>
+		</nav>
+	</div>
+</header>
