@@ -2,7 +2,8 @@
 // Component Imports
 import Body from '../components/Body.astro';
 import Header from '../components/Header.astro';
-import { SITE_TITLE } from '../config.ts';
+import { SITE_TITLE, SITE_WEBNAME, SITE_DESCRIPTION } from '../config.ts';
+
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -20,9 +21,8 @@ const featuredProject = projects[0]!;
 <html lang="en">
 	<head>
 		<MainHead
-			title="Jeanine White: Personal Site"
-			description="Jeanine White: Developer, Speaker, and Writer..."
-		/>
+			title={ SITE_WEBNAME }
+			description={ SITE_DESCRIPTION } />
 	</head>
 	<Body>
 	  <Header title={ SITE_TITLE } />

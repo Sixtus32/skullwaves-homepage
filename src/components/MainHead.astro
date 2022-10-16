@@ -1,11 +1,18 @@
 ---
 import '../styles/global.css';
+
+export interface Props {
+  title: string
+  description: string
+  image?: string
+}
 const {
-	title = 'Jeanine White: Personal Site',
-	description = 'The personal site of Jeanine White',
+	title = ' skullwaves - homepage ',
+	description = 'The personal site of skullwaves',
 } = Astro.props;
 ---
 
+<!-- Global Metadata -->
 <meta charset="UTF-8" />
 <meta name="description" property="og:description" content={description} />
 <meta name="viewport" content="width=device-width" />
@@ -19,3 +26,20 @@ const {
 	href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
 	rel="stylesheet"
 />
+
+<script is:inline>
+  const theme = (() => {
+    if(typeof localStorage !== 'undefined' && localStorage.getItem('theme')){
+      return localStorage.getItem('theme')
+    }
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+      return 'dark'
+    }
+    return 'light'
+  })()
+  if(theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+</script>
