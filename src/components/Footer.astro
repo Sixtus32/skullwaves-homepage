@@ -1,25 +1,14 @@
 ---
-const currentYear = new Date().getFullYear();
+export interface Props {
+  property?: string;
+  site?: string;
+}
+const { property = 'skullwaves', site = 'https//www.skullwaves.io/' } = Astro.props;
+
+const today = new Date();
 ---
 
-<footer>
-	&copy; {currentYear} Jeanine White
-	<small class="byline">🚀 Built by Astro</small>
+<footer class="text-center pt-[8rem] pr-[2rem] pb-[4rem] pl-[2rem]">
+	&copy; { today.getFullYear() } <a href={ site }> { property } </a>. All rights reserved.
+	<small class="block mt-[1rem] color-[var(--t-subdue)] text-[var(--f-d2)] uppercase">🚀 Built by Astro 👨🏾‍💻</small>
 </footer>
-<style>
-	footer {
-		text-align: center;
-		padding-top: 8rem;
-		padding-right: 2rem;
-		padding-bottom: 4rem;
-		padding-left: 2rem;
-	}
-
-	.byline {
-		display: block;
-		margin-top: 1rem;
-		color: var(--t-subdue);
-		font-size: var(--f-d2);
-		text-transform: uppercase;
-	}
-</style>
