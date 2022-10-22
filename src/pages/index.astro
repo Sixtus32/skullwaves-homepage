@@ -4,9 +4,8 @@ import Body from '../components/Body.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_WEBNAME, SITE_DESCRIPTION, HOMEPAGE_URL } from '../config.ts';
 import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav.astro';
+import Masthead from '../components/Masthead.astro';
 import Footer from '../components/Footer.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
 import type { Project } from '../types';
 
 // Data Fetching: List all Markdown posts in the repo.
@@ -26,6 +25,7 @@ const featuredProject = projects[0]!;
 	<Body>
 	  <Header title={ SITE_TITLE } />
             <main>
+	      <Masthead />
             </main>
 	    <Footer property={ SITE_TITLE } site={ HOMEPAGE_URL } />
 	</Body>
